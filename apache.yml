@@ -1,6 +1,6 @@
 
 - name: Import pfx certificate that is password protected
-  ansible.windows.win_certificate_store:
+  
     path: C:\Users\neha1\Downloads\Hojabhai.pfx
     state: present
     password: 
