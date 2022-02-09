@@ -16,4 +16,4 @@
   - name: Create website index.html
     win_copy:
       src: files/web.html
-      dest: C:\Inetpub\wwwroot\index.html
+      dest: C:\inetpub\wwwroot\iisstart.htm
