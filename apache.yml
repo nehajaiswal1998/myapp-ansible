@@ -1,8 +1,4 @@
-
-- name: Import pfx certificate that is password protected
-  
-    path: C:\Users\neha1\Downloads\Hojabhai.pfx
+- name: Import a certificate
+  ansible.windows.win_certificate_store:
+    path: "C:\Users\neha1\Downloads\Hojabhai.pfx"
     state: present
-    password: 
-  become: yes
-  become_method: runas
