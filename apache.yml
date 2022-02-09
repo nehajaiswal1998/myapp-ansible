@@ -3,6 +3,4 @@
     path: C:\Users\neha1\Downloads\Hojabhai.pfx
     state: present
     key_exportable: no
-  # usually you don't set this here but it is for illustrative purposes
-  vars:
-    ansible_winrm_transport: credssp
+  
