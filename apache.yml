@@ -1,8 +1,19 @@
 ---
-- name: Import pfx certificate without password and set private key as un-exportable
-  
-    path: C:\Users\neha1\Downloads\Hojabhai.pfx
-    state: present
-    key_exportable: no
----
-  
+- name: Configure IIS
+  hosts: windows
+
+  tasks:
+  - name: Install IIS
+    win_feature:
+      name: Web-Server
+      state: present
+
+  - name: Start IIS service
+    win_service:
+      name: W3Svc
+      state: started
+
+  - name: Create website index.html
+    win_copy:
+      src: files/web.html
+      dest: C:\Inetpub\wwwroot\index.html
