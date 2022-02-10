@@ -1,19 +1,11 @@
----
-- name: Configure IIS
-  hosts: windows
-
-  tasks:
-  - name: Install IIS
-    win_feature:
-      name: Web-Server
-      state: present
-
-  - name: Start IIS service
-    win_service:
-      name: W3Svc
-      state: started
-
-  - name: Create website index.html
-    win_copy:
-      src: files/web.html
-      dest: C:\inetpub\wwwroot\iisstart.htm
+- name: 'Importing Certificate:{{cert_cer_file_path}}'
+  win_certificate_store:
+    path: '{{C:\Users\neha1\Downloads\Hojabhai.pfx}}'
+    store_location: LocalMachine
+    key_storage: machine 
+    key_exportable: yes
+    state: present
+  become: yes
+  become_method: runas
+  <same options as early>
+  register: cert_import
